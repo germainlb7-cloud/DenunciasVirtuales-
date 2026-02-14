@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Escaneo del Sistema</title>
+
+<style>
+body {
+  background-color: black;
+  color: #00ff00;
+  font-family: monospace;
+  padding: 20px;
+  text-align: center;
+}
+
+#output {
+  white-space: pre-line;
+  margin-top: 20px;
+}
+
+img {
+  width: 220px;
+  margin-top: 20px;
+  animation: aparecer 2s ease-in-out;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+
+</head>
+<body>
+
+<h2>🔍 Escaneando dispositivo...</h2>
+
+<div id="output"></div>
+
+<div id="imagenFinal"></div>
+
+<script>
+let output = document.getElementById("output");
+let imagenFinal = document.getElementById("imagenFinal");
+
+let messages = [
+  "📡 Se le informa que el número ********25 a violado la Ley del Codigo Penal Colombiano Detectando dirección IP...",
+  "🛰 Conectando con satélites...",
+  "🔓 Accediendo a base de datos central...",
+  "📂 Verificando registros...",
+  "🚨 Por incumplimiento directo a la Ley 1273 de 2009 del Codigo Penal Colombiano",
+  "📍 Ubicación detectada en Bolonia...",
+  "🚓 Notificando autoridades...",
+  "",
+  " Policia Nacional de Colombia."
+];
+
+let i = 0;
+
+function showMessage() {
+  if (i < messages.length) {
+    output.innerHTML += messages[i] + "\n";
+    i++;
+    setTimeout(showMessage, 1200);
+  } else {
+    // Mostrar imagen al final
+    imagenFinal.innerHTML = '<img src="escudo.png">';
+  }
+}
+
+showMessage();
+</script>
+
+</body>
+</html>
